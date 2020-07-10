@@ -4,7 +4,8 @@ assetsArr = [],
 beersArr = [];
 
 (()=>{
-    getBeers()
+    getBeers();
+    getAssets();
 })();
 
 function getBeers(){
@@ -24,6 +25,22 @@ function getBeers(){
     })
 }
 
+function getAssets(){
+    fetch(assetsJson)
+    .then(response =>{
+        return response.json();
+    })
+    .then(data =>{
+        assetsArr.push(data);
+        console.log(data);
+    })
+    .catch(error =>{
+        console.log(error);
+    })
+    .finally(()=>{
+        console.log('Llegaron los assets!');
+    })
+}
 
 
 
